@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Express-Guestbook</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>
+            Express-Guestbook
+            <a href="/new-entry" class="btn btn-primary pull-right">Write in the guest book</a>
+        </h1>
+        <% if (entries.length) { %>
+            <% entries.forEach(function(entry) { %>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-muted pull-right">
+                            <%= entry.published %>        
+                        </div>        
+                        <%= entry.title %>      
+                    </div>      
+                    <div class="panel-body">
+                        <%= entry.content %> 
+                    </div>    
+                </div>  
+                <% }) %>
+                <% } else { %>
+                    No entries! 
+                   <a href="/new-entry">Add one!</a>
+                <% } %>
+    </body>
+    </html>
